@@ -14,6 +14,8 @@
 		<action name="textupload" class="com.calendar.TextUpload">
 		</action>
 
-
+		<action name="playMusic" class="com.calendar.PlayAudio" method="playMusic">
+			<result name="success">/index.jsp</result>
+		</action>
 	</package>
 </struts>

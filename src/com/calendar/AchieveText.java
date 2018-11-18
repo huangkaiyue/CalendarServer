@@ -16,21 +16,10 @@ public class AchieveText extends ActionSupport {
 			AckRequestFailed(403,"无效的请求参数");
 			return NONE;
 		}
-		JSONObject js = JSONObject.fromObject(boby);
-		String msgtype = js.getString("msgtype").toString();
-//		String dateStr = js.getString("dateStr");
-		if(msgtype.equals("getdate")){
-//			if(dateStr==dateStr||dateStr.equals("")){
-//				String json =CalDataInterface.AckCalendarData();
-//				HttpServletUtils.AckRequestResponse(ServletActionContext.getResponse(),json);
-//				System.out.println("getdate");
-//			}else{
-				String json =CalDataInterface.AckCalendarData();
+		MsgRequest req =(MsgRequest)JSONObject.toBean(JSONObject.fromObject(boby),MsgRequest.class);
+		if(req.getMsgtype().equals("getdate")){
+				String json =CalDataInterface.AckCalendarData(req.getDateStr());
 				HttpServletUtils.AckRequestResponse(ServletActionContext.getResponse(),json);
-//				System.out.println("getdate:"+dateStr);
-//			}
-		}else{
-			
 		}
 
 		return NONE;

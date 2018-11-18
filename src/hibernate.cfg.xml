@@ -7,20 +7,21 @@
 <session-factory>
 
 	<!-- 1. 数据库连接配置 -->
+<!--
 	<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 	<property name="hibernate.connection.url">jdbc:mysql://10.61.17.153:3306/CalendarDb?useUnicode=true&amp;characterEncoding=utf8</property>
 	<property name="hibernate.connection.username">root</property>
 	<property name="hibernate.connection.password">123456</property>
 	<property name="hibernate.connection.ipaddress">jdbc:mysql://10.61.17.153:3306</property>
 	<property name="hibernate.connection.databaseName">CalendarDb</property>
-
-	<!--		
-		<property name="hibernate.connection.url">jdbc:mysql://47.95.230.203:3306/testxiaomanyao?useUnicode=true&amp;characterEncoding=utf8</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">kaiyue123456.</property>
-		<property name="hibernate.connection.ipaddress">jdbc:mysql://47.95.230.203:3306</property>
-		<property name="hibernate.connection.databaseName">CalendarDb</property>
-	-->
+-->
+			
+	<property name="hibernate.connection.url">jdbc:mysql://47.95.230.203:3306/CalendarDb?useUnicode=true&amp;characterEncoding=utf8</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">kaiyue123456.</property>
+	<property name="hibernate.connection.ipaddress">jdbc:mysql://47.95.230.203:3306</property>
+	<property name="hibernate.connection.databaseName">CalendarDb</property>
+	
 
 	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 	<!-- 2. 其他相关配置 -->

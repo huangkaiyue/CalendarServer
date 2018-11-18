@@ -63,11 +63,11 @@ public class ConfigServer {
 			if(osName.equals("Linux")){
 				cacheDir = LinuxServerCacheDir;
 				Downurl="http://47.95.230.203/html/"+ServerCacheDir+"/";
-				httpsDownurl="https://www.lanbaoai.cn/"+ServerCacheDir+"/music?method=down&fileName=";
+				httpsDownurl="https://www.lanbaoai.cn/"+ServerCacheDir+"/playMusic?method=down&fileName=";
 			}else{
 				cacheDir = WinServerCacheDir;
 				Downurl="http://"+localServerAddress+"/"+ServerCacheDir+"/";
-				httpsDownurl="http://"+localServerAddress+"/"+ServerCacheDir+"/";
+				httpsDownurl="http://"+localServerAddress+":9000"+"/"+ServerCacheDir+"/playMusic?method=down&fileName=";
 			}
 			File dir = new File(cacheDir);
 			if(dir.exists()){

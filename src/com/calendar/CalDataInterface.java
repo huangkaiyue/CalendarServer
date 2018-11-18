@@ -43,16 +43,16 @@ public class CalDataInterface {
 		return ret;
 	}
 	
-	 private static List<Object> ScanCalendarData(){
+	 private static List<Object> ScanCalendarData(String dateStr){
 		Session session = HibernateUtil.getSession();// 创建session (代表一个会话，与数据库连接的会话)
 		Transaction tx = session.beginTransaction();// 开启事务
 		String sql = "from CalendarData al where al.Tdate=?";
-		Date day=new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String dateString = formatter.format(day);
+//		Date day=new Date();
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//		String dateString = formatter.format(day);
 
 		Query query =session.createQuery(sql);//HQL创建查询语句
-		query.setParameter(0,dateString);
+		query.setParameter(0,dateStr);
 		
 		List<Object>list=query.list();
 //		if(list!=null&&list.size()!=0){
@@ -67,10 +67,10 @@ public class CalDataInterface {
 		return  list;
 		
 	}
-	public static String AckCalendarData(){
+	public static String AckCalendarData(String dateStr){
 		String jsondata="";
 		CalendarData cal =null; 
-		List<Object>list=ScanCalendarData();
+		List<Object>list=ScanCalendarData(dateStr);
 		JSONObject json = new JSONObject();
 		JSONArray jarr = new JSONArray();
 		
@@ -83,6 +83,7 @@ public class CalDataInterface {
 				js.put("author", cal.getAuthor());
 				js.put("textData", cal.getTextData());
 				js.put("playAudio", ConfigServer.getInstance().getDownUrl()+"/"+cal.getPlayAudio());
+				js.put("playAudios", ConfigServer.getInstance().getHttpsDownUrl()+cal.getPlayAudio());
 				js.put("Tdate", cal.getTdate());
 				jarr.add(js);
 			}
