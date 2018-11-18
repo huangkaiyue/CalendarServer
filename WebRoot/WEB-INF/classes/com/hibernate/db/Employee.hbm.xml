@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hibernate.db">
+	
+	<class name= "CalendarData" table="calendardata">
+		<id name ="uId" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="author" column="author" ></property>
+		<property name="textData" column="textData" unique="true"></property>
+		<property name="playAudio" column="playAudio"></property>
+		<property name="Tdate" column="Tdate"></property>
+	</class>
+
+</hibernate-mapping>
